@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8"><link rel="manifest" href="/site.webmanifest">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JedzenioPlanner</title>
+    <base href="/">
+    <link rel="stylesheet" href="styles/bulma.min.css">
+    <link rel="stylesheet" href="styles/bulma-tagsinput.min.css"/>
+    <link rel="stylesheet" href="styles/bulma-slider.min.css">
+    <link rel="stylesheet" href="styles/bulma-prefers-dark.css">
+    <link rel="stylesheet" href="styles/common.css">
+    <link rel="stylesheet" href="styles/boxicons.min.css">
+</head>
+<body>
+    <section class="hero is-medium is-bold" id="mainHero">
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+              <a class="navbar-item" href="/">
+                <b>JedzenioPlanner</b>
+              </a>
+          
+              <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+              </a>
+            </div>
+          
+            <div id="navbarBasicExample" class="navbar-menu">
+              <div class="navbar-start">
+                <a class="navbar-item" href="/">
+                  Strona główna
+                </a><a class="navbar-item" href="/recipe/explore">
+                  Odkrywaj
+                </a>
+          
+                <a class="navbar-item" href="/recipe/plan">
+                  Zaplanuj swoje menu
+                </a> <a class="navbar-item" href="/recipe/search">
+                  Wyszukaj przepis
+                </a>
+
+                <a class="navbar-item" href="/recipe/submit">
+                  Dodaj przepis
+                </a>
+              </div>
+          
+              <div class="navbar-end">
+                <div class="navbar-item">
+                  <div class="buttons">
+                      <a class="button is-primary is-hidden" id="loginButton">
+                      <i class='bx bx-log-in'></i>&nbsp;<strong>Zaloguj się lub zarejestruj</strong>
+                    </a>
+                    <a class="button is-secondary is-hidden" id="logoutButton">
+                      <i class='bx bx-log-out'></i>&nbsp;<strong>Wyloguj się</strong>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nav>
+        <div class="hero-body has-text-centered">
+          <div class="container">
+            <h1 class="is-size-1 is-size-3-mobile">
+              JedzenioPlanner
+            </h1>
+            <h2 class="subtitle">
+              Bon appétit!
+            </h2>
+          </div>
+        </div>
+      </section>
+    <section class="section">
+        <div class="container">
+          <h1 class="title">
+            Szukaj przepisu
+          </h1>
+          <p class="subtitle">
+            Znajdź danie odpowiednie dla siebie
+          </p>
+        </div>
+      </section>
+    <section class="section">
+        <div class="container">
+            <form action="/recipe/search">
+                <p class="title">Znajdź przepis</p>
+                <div class="field">
+                <div class="control">
+                  <label for="searchCalSlider" class="label"><i class='bx bx-tachometer'></i> Kaloryczność</label>
+                  <input name="calories" id="searchCalSlider" class="slider has-output" min="100" max="2300" value="900" type="range">
+                  <output for="searchCalSlider" id="searchCalOutput">900</output>
+                </div>
+                </div>
+                <div class="field">
+                  <label class="label"><i class='bx bx-time'></i> Posiłek</label>
+                  <div class="control radios">
+                    <label class="radio">
+                      <input type="radio" name="meal" value="breakfast">
+                      <div style="background: url(images/meals/breakfast.jpg);"><p>Śniadanie</p></div>
+                    </label>
+                    <label class="radio">
+                      <input type="radio" name="meal" value="lunch">
+                      <div style="background: url(images/meals/lunch.jpg);"><p>Lunch</p></div>
+                    </label>
+                    <label class="radio">
+                      <input type="radio" name="meal" value="dinner">
+                      <div style="background: url(images/meals/dinner.jpg);"><p>Obiad</p></div>
+                    </label>
+                    <label class="radio">
+                      <input type="radio" name="meal" value="snack">
+                      <div style="background: url(images/meals/snack.jpg);"><p>Przekąska</p></div>
+                    </label>
+                  </div>
+              </div>
+                <div class="field">
+                  <div class="control">
+                    <button class="button is-info" id="addBtn">
+                      Szukaj
+                    </button>
+                  </div>
+                </div>
+                </form>
+          </div>
+    </section>
+    <section class="section">
+      <div class="container" id="resultsView">
+
+      </div>
+    </section>
+    <footer class="footer">
+        <div class="content has-text-centered">
+          <p>
+            <strong>JedzenioPlanner</strong> by <a href="https://github.com/JedzenioPlanner" target="_blank">JedzenioPlanner Team</a>.<br/>
+            Aplikacja dostępna na licencji MIT.<br/><a href="/disclaimer">Wyłączenie odpowiedzialności</a>
+          </p>
+        </div>
+    </footer>
+    <script src="scripts/lib/auth0-spa-js.production.js"></script>
+    <script src="scripts/lib/jquery.min.js"></script>
+    <script src="scripts/recipe/card.js"></script>
+    <script src="scripts/recipe/search.js"></script>
+    <script src="scripts/common.js"></script>
+    <script src="scripts/lib/bulma-slider.min.js" onload="bulmaSlider.attach();"></script>
+    <script src="scripts/lib/bulma-tagsinput.min.js" onload="BulmaTagsInput.attach()"></script>
+</body>
+</html>
